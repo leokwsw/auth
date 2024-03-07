@@ -1,0 +1,32 @@
+spring:
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          localhost:
+            token:
+              access-token-time-to-live: 240s
+              access-token-format: reference
+            registration:
+              authorization-grant-types: client_credentials
+              client-id: localhost
+              client-authentication-methods: client_secret_post,client_secret_basic
+              client-name: localhost
+              client-secret: '{noop}localhost'
+          second:
+            token:
+              access-token-time-to-live: 3600s
+              access-token-format: reference
+            registration:
+              authorization-grant-types: client_credentials
+              client-authentication-methods: client_secret_post,client_secret_basic
+              client-id: second
+              client-name: second
+              client-secret: '{noop}second'
+server:
+  forward-headers-strategy: framework
+  port: '64200'
+logging:
+  level:
+    org:
+      springframework: DEBUG
