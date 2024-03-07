@@ -1,3 +1,6 @@
+server:
+  forward-headers-strategy: framework
+  port: '64200'
 spring:
   security:
     oauth2:
@@ -23,9 +26,6 @@ spring:
               client-id: second
               client-name: second
               client-secret: '{noop}second'
-server:
-  forward-headers-strategy: framework
-  port: '64200'
 logging:
   level:
     org:
